@@ -1,0 +1,144 @@
+{
+    "name": "drupal-composer/drupal-project",
+    "description": "Project template for Drupal 8 projects with composer",
+    "type": "project",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "",
+            "role": ""
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "ckeditor",
+                "version": "4.12",
+                "type": "drupal-library",
+                "source": {
+                    "url": "https://github.com/ckeditor/ckeditor-dev.git",
+                    "type": "git",
+                    "reference": "origin/major"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "codesnippet",
+                "version": "4.11.4",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://download.ckeditor.com/codesnippet/releases/codesnippet_4.11.4.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "enyo/dropzone",
+                "version": "5.5.0",
+                "type": "drupal-library",
+                "source": {
+                    "url": "https://github.com/enyo/dropzone",
+                    "type": "git",
+                    "reference": "origin/master"
+                }
+            }
+        }
+    ],
+    "require": {
+        "php": ">=5.6",
+        "ckeditor": "^4.12",
+        "codesnippet": "^4.11",
+        "composer/installers": "^1.2",
+        "cweagans/composer-patches": "^1.6.5",
+        "drupal-composer/drupal-scaffold": "^2.5",
+        "drupal/codesnippet": "^1.6",
+        "drupal/coffee": "^1.0",
+        "drupal/console": "^1.0.2",
+        "drupal/core": "^8.7.0",
+        "drupal/devel": "^2.1",
+        "drupal/dropzonejs": "^2.0",
+        "drupal/paragraphs": "^1.8",
+        "drupal/rabbit_hole": "^1.0",
+        "drush/drush": "^9.0.0",
+        "enyo/dropzone": "^5.5",
+        "vlucas/phpdotenv": "^2.4",
+        "webflo/drupal-finder": "^1.0.0",
+        "webmozart/path-util": "^2.3",
+        "zaporylie/composer-drupal-optimizations": "^1.0"
+    },
+    "require-dev": {
+        "webflo/drupal-core-require-dev": "^8.7.0"
+    },
+    "conflict": {
+        "drupal/drupal": "*"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "classmap": [
+            "scripts/composer/ScriptHandler.php"
+        ],
+        "files": ["load.environment.php"]
+    },
+    "scripts": {
+        "pre-install-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+        ],
+        "pre-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+        ],
+        "post-install-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ],
+        "post-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ]
+    },
+    "extra": {
+        "composer-exit-on-patch-failure": true,
+        "patchLevel": {
+            "drupal/core": "-p2"
+        },
+        "installer-paths": {
+            "web/core": ["type:drupal-core"],
+            "web/libraries/{$name}": ["type:drupal-library"],
+            "web/modules/contrib/{$name}": ["type:drupal-module"],
+            "web/profiles/contrib/{$name}": ["type:drupal-profile"],
+            "web/themes/contrib/{$name}": ["type:drupal-theme"],
+            "drush/Commands/{$name}": ["type:drupal-drush"]
+        },
+        "drupal-scaffold": {
+            "initial": {
+                ".editorconfig": "../.editorconfig",
+                ".gitattributes": "../.gitattributes"
+            }
+        },
+        "patches": {
+            "drupal/paragraphs": {
+                "No option to set permission to view/edit/create/delete any paragraph type when using paragraphs type permissions": "https://www.drupal.org/files/issues/2019-05-22/3056358.patch",
+                "Add description for paragraph settings": "https://www.drupal.org/files/issues/2019-05-06/add-description-for-paragraph-settings-3040856-7.patch"
+            },
+            "drupal/devel": {
+                "Replace deprecated entity_* calls with proper calls to the entity api": "https://www.drupal.org/files/issues/2019-05-12/3044234-6.patch"
+            },
+            "drupal/rabbit_hole": {
+                "Support for the core media entities.": "https://www.drupal.org/files/issues/2019-02-21/rh_media_library_support.patch"
+            },
+            "drupal/coffee": {
+                "Mouse+ctrlKey - Accessibility improvement": "https://www.drupal.org/files/issues/2018-08-23/coffee-accessibility-improvments-1.patch"
+            }
+        }
+    }
+}
