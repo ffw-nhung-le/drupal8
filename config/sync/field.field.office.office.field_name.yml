@@ -1,0 +1,21 @@
+uuid: f9161d27-89ac-4c73-8042-29bf9511580c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.office.field_name
+  module:
+    - ffw_custom
+    - text
+id: office.office.field_name
+field_name: field_name
+entity_type: office
+bundle: office
+label: Name
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

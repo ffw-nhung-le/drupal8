@@ -1,0 +1,22 @@
+uuid: 2ec18686-0ff5-4dbf-a528-00bd209d30da
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.pregnant_calender
+  module:
+    - text
+id: node.pregnant_calender.body
+field_name: body
+entity_type: node
+bundle: pregnant_calender
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

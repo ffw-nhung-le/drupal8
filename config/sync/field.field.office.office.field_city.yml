@@ -1,0 +1,21 @@
+uuid: 12f65a6f-af33-45be-87b3-8ea7ea69ee70
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.office.field_city
+  module:
+    - ffw_custom
+    - text
+id: office.office.field_city
+field_name: field_city
+entity_type: office
+bundle: office
+label: City
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

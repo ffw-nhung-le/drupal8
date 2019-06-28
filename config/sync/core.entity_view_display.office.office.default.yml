@@ -1,0 +1,46 @@
+uuid: b33aa1af-5848-464d-92ff-d9b7637252b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.office.office.field_city
+    - field.field.office.office.field_name
+  module:
+    - ffw_custom
+    - text
+    - user
+id: office.office.default
+targetEntityType: office
+bundle: office
+mode: default
+content:
+  field_city:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_name:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  name:
+    label: above
+    type: string
+    weight: -4
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  user_id:
+    label: hidden
+    type: author
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

@@ -1,0 +1,49 @@
+uuid: 4a1b2933-31da-4c6c-9e32-40496c73efa5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.pregnant_calender.body
+    - field.field.node.pregnant_calender.field_end_date
+    - field.field.node.pregnant_calender.field_event_date
+    - node.type.pregnant_calender
+  module:
+    - datetime
+    - text
+    - user
+id: node.pregnant_calender.default
+targetEntityType: node
+bundle: pregnant_calender
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_end_date:
+    weight: 103
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_event_date:
+    weight: 102
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }
