@@ -66,6 +66,7 @@
         "drupal/core": "^8.7.0",
         "drupal/devel": "^2.1",
         "drupal/dropzonejs": "^2.0",
+        "drupal/fullcalendar_view": "^2.2",
         "drupal/paragraphs": "^1.8",
         "drupal/rabbit_hole": "^1.0",
         "drush/drush": "^9.0.0",
